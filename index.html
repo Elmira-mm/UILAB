@@ -1,0 +1,217 @@
+<!DOCTYPE html>
+<html lang="uk">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Специфікація UI — 10 елементів керування</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Fraunces:ital,opsz,wght@0,9..144,400;0,9..144,600;1,9..144,500;1,9..144,600&family=Space+Grotesk:wght@400;500;600;700&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+  <header class="hero" id="top">
+    <p class="meta"><span>Лабораторна робота</span><span>Каталог елементів інтерфейсу</span><span>10 позицій</span></p>
+    <h1><span>Анатомія<br>інтерфейсу</span></h1>
+    <p class="lead">Десять базових елементів керування — кожен показано в дії, з поясненням, яку задачу він вирішує та коли його варто обирати.</p>
+  </header>
+
+  <div class="shell">
+    <div class="layout">
+      <nav class="toc" aria-label="Зміст">
+        <ol>
+          <li><a href="#radiobutton" class="nav-link"><span class="n">01</span>Radiobutton</a></li>
+          <li><a href="#checkbox" class="nav-link"><span class="n">02</span>Checkbox</a></li>
+          <li><a href="#textinput" class="nav-link"><span class="n">03</span>Text input</a></li>
+          <li><a href="#tabs" class="nav-link"><span class="n">04</span>Tabs</a></li>
+          <li><a href="#button" class="nav-link"><span class="n">05</span>Button</a></li>
+          <li><a href="#label" class="nav-link"><span class="n">06</span>Text label</a></li>
+          <li><a href="#link" class="nav-link"><span class="n">07</span>Link</a></li>
+          <li><a href="#tooltip" class="nav-link"><span class="n">08</span>Tooltip</a></li>
+          <li><a href="#dropdown" class="nav-link"><span class="n">09</span>Dropdown</a></li>
+          <li><a href="#grid" class="nav-link"><span class="n">10</span>Data grid</a></li>
+        </ol>
+      </nav>
+
+      <main>
+
+        <section class="spec" id="radiobutton">
+          <div class="numcol"><p class="big">01</p><span class="tag">Selection · exclusive</span></div>
+          <div class="body-col">
+            <h2 class="title">Radiobutton</h2>
+            <p class="purpose">Дозволяє вибрати <strong>рівно один</strong> варіант із набору взаємовиключних опцій. Якщо варіантів небагато й вибір лише один — це природний елемент для такої задачі.</p>
+            <div class="demo">
+              <div class="row" role="radiogroup" aria-label="Спосіб доставки">
+                <label class="field-label"><input type="radio" name="delivery" checked>Кур'єром</label>
+                <label class="field-label"><input type="radio" name="delivery">Самовивіз</label>
+                <label class="field-label"><input type="radio" name="delivery">Поштомат</label>
+              </div>
+              <div class="caption">Вибір способу доставки замовлення — доступний лише один варіант одночасно.</div>
+            </div>
+            <p class="notes"><span class="flag">Use&nbsp;case</span>Тариф, спосіб оплати, стать — короткий видимий список, один вибір.</p>
+          </div>
+        </section>
+
+        <section class="spec" id="checkbox">
+          <div class="numcol"><p class="big">02</p><span class="tag">Selection · multiple</span></div>
+          <div class="body-col">
+            <h2 class="title">Checkbox</h2>
+            <p class="purpose">Дозволяє вибрати <strong>один або кілька</strong> незалежних варіантів, або зафіксувати бінарний стан «так/ні» окремого пункту.</p>
+            <div class="demo">
+              <div class="row">
+                <label class="field-label"><input type="checkbox" checked>Email-сповіщення</label>
+                <label class="field-label"><input type="checkbox">SMS-сповіщення</label>
+                <label class="field-label"><input type="checkbox">Push-сповіщення</label>
+              </div>
+              <div class="caption">Налаштування сповіщень — будь-яка кількість пунктів може бути увімкнена одночасно.</div>
+            </div>
+            <p class="notes"><span class="flag">Use&nbsp;case</span>Множинний вибір, згода з умовами, окрема функція увімкнена/вимкнена.</p>
+          </div>
+        </section>
+
+        <section class="spec" id="textinput">
+          <div class="numcol"><p class="big">03</p><span class="tag">Input · free text</span></div>
+          <div class="body-col">
+            <h2 class="title">Text input</h2>
+            <p class="purpose">Поле для введення довільного тексту користувачем — імені, email, пошукового запиту тощо. Основний елемент для збору вільних даних.</p>
+            <div class="demo">
+              <label class="field-label" for="ti" style="margin-bottom:10px;display:block;">Ім'я користувача</label>
+              <input type="text" id="ti" placeholder="Введіть ім'я...">
+              <small class="hint">Поле реєстрації профілю.</small>
+            </div>
+            <p class="notes"><span class="flag">Use&nbsp;case</span>Дані, які не можна обрати зі скінченного списку — текст, пароль, email.</p>
+          </div>
+        </section>
+
+        <section class="spec" id="tabs">
+          <div class="numcol"><p class="big">04</p><span class="tag">Navigation · panels</span></div>
+          <div class="body-col">
+            <h2 class="title">Tabs</h2>
+            <p class="purpose">Групує пов'язаний контент у окремі панелі й показує лише одну з них за раз, без переходу на іншу сторінку.</p>
+            <div class="demo">
+              <div class="tab-bar" role="tablist">
+                <button class="tab-btn active" role="tab" aria-selected="true" data-tab="t1">Опис</button>
+                <button class="tab-btn" role="tab" aria-selected="false" data-tab="t2">Характеристики</button>
+                <button class="tab-btn" role="tab" aria-selected="false" data-tab="t3">Відгуки</button>
+              </div>
+              <div class="tab-panel active" id="t1">Короткий опис товару чи функції — перша вкладка активна за замовчуванням.</div>
+              <div class="tab-panel" id="t2">Технічні характеристики: розмір, вага, матеріал — показуються без перезавантаження сторінки.</div>
+              <div class="tab-panel" id="t3">Відгуки користувачів з'являються у цій панелі після кліку на вкладку.</div>
+            </div>
+            <p class="notes"><span class="flag">Use&nbsp;case</span>Кілька розділів однакової ваги в межах одного об'єкта.</p>
+          </div>
+        </section>
+
+        <section class="spec" id="button">
+          <div class="numcol"><p class="big">05</p><span class="tag">Action · trigger</span></div>
+          <div class="body-col">
+            <h2 class="title">Button</h2>
+            <p class="purpose">Запускає дію — відправку форми, збереження, перехід у інший стан інтерфейсу. Кнопка виконує операцію, а не переходить за адресою.</p>
+            <div class="demo">
+              <button class="primary" id="demo-btn">Зберегти зміни</button>
+              <span id="btn-out"></span>
+            </div>
+            <p class="notes"><span class="flag">Use&nbsp;case</span>Будь-яка дія, що змінює стан застосунку — відправити, видалити, підтвердити.</p>
+          </div>
+        </section>
+
+        <section class="spec" id="label">
+          <div class="numcol"><p class="big">06</p><span class="tag">Static · text</span></div>
+          <div class="body-col">
+            <h2 class="title">Text label</h2>
+            <p class="purpose">Статичний текст, який підписує поле або елемент керування, пояснюючи користувачу, що саме очікується. Сам по собі не інтерактивний.</p>
+            <div class="demo">
+              <span style="font-weight:600;">Номер телефону</span>
+              <div class="caption">Підпис над полем вводу телефону в формі замовлення.</div>
+            </div>
+            <p class="notes"><span class="flag">Use&nbsp;case</span>Будь-де, де поле вводу потребує пояснення свого призначення.</p>
+          </div>
+        </section>
+
+        <section class="spec" id="link">
+          <div class="numcol"><p class="big">07</p><span class="tag">Navigation · route</span></div>
+          <div class="body-col">
+            <h2 class="title">Link</h2>
+            <p class="purpose">Переносить користувача на іншу сторінку, розділ або зовнішній ресурс. Виконує навігацію, а не дію над даними.</p>
+            <div class="demo">
+              <a href="#top" style="text-decoration-color:var(--accent);text-underline-offset:3px;">Повернутися нагору сторінки</a>
+              <div class="caption">Навігаційне посилання всередині документа.</div>
+            </div>
+            <p class="notes"><span class="flag">Use&nbsp;case</span>Перехід між сторінками, до зовнішніх ресурсів або розділу цієї ж сторінки.</p>
+          </div>
+        </section>
+
+        <section class="spec" id="tooltip">
+          <div class="numcol"><p class="big">08</p><span class="tag">Assist · hint</span></div>
+          <div class="body-col">
+            <h2 class="title">Tooltip</h2>
+            <p class="purpose">Коротка підказка, яка з'являється при наведенні або фокусі на елементі та пояснює його призначення, не займаючи постійного місця на екрані.</p>
+            <div class="demo">
+              <span class="tooltip-wrap">
+                CVV-код
+                <span class="info-dot" tabindex="0">?</span>
+                <span class="tooltip-bubble">3 цифри на звороті картки</span>
+              </span>
+              <div class="caption">Пояснення для поля, назва якого сама по собі неочевидна.</div>
+            </div>
+            <p class="notes"><span class="flag">Use&nbsp;case</span>Коротке уточнення для іконки чи поля без постійного тексту.</p>
+          </div>
+        </section>
+
+        <section class="spec" id="dropdown">
+          <div class="numcol"><p class="big">09</p><span class="tag">Selection · list</span></div>
+          <div class="body-col">
+            <h2 class="title">Dropdown list</h2>
+            <p class="purpose">Дозволяє вибрати один варіант зі списку, прихованого, доки користувач не відкриє його — економить простір порівняно з радіокнопками при великій кількості варіантів.</p>
+            <div class="demo">
+              <label class="field-label" for="dd" style="margin-bottom:10px;display:block;">Країна</label>
+              <select id="dd">
+                <option>Україна</option>
+                <option>Польща</option>
+                <option>Німеччина</option>
+                <option>Азербайджан</option>
+                <option>Інша</option>
+              </select>
+            </div>
+            <p class="notes"><span class="flag">Use&nbsp;case</span>Один варіант із довгого списку — країна, місто, категорія.</p>
+          </div>
+        </section>
+
+        <section class="spec" id="grid">
+          <div class="numcol"><p class="big">10</p><span class="tag">Display · table</span></div>
+          <div class="body-col">
+            <h2 class="title">Data grid</h2>
+            <p class="purpose">Таблична структура для показу й порівняння багатьох записів одночасно, часто з можливістю сортування по стовпцях.</p>
+            <div class="demo">
+              <div class="grid-wrap">
+                <table class="data-grid" id="grid-table">
+                  <thead>
+                    <tr>
+                      <th data-key="name">Проєкт <span class="sort-arrow">↕</span></th>
+                      <th data-key="status">Статус <span class="sort-arrow">↕</span></th>
+                      <th data-key="deadline">Дедлайн <span class="sort-arrow">↕</span></th>
+                      <th data-key="priority">Пріоритет <span class="sort-arrow">↕</span></th>
+                    </tr>
+                  </thead>
+                  <tbody></tbody>
+                </table>
+              </div>
+              <div class="caption">Клік на заголовок стовпця сортує рядки — типова поведінка data grid.</div>
+            </div>
+            <p class="notes"><span class="flag">Use&nbsp;case</span>Перегляд і порівняння списку задач, замовлень, користувачів.</p>
+          </div>
+        </section>
+
+      </main>
+    </div>
+
+    <footer>
+      <span>Лабораторна робота — каталог базових UI-елементів</span>
+      <span>Усі елементи на сторінці інтерактивні та робочі</span>
+    </footer>
+  </div>
+
+<script src="script.js"></script>
+</body>
+</html>
